@@ -104,7 +104,7 @@ const About = () => {
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
                         <h4 className="font-semibold text-lg">Six-week internship at PARCO</h4>
-                        <span className="px-2 py-1 rounded-full bg-primary/10 text-primary text-xs">2023</span>
+                        <span className="px-2 py-1 rounded-full bg-primary/10 text-primary text-xs">2025</span>
                       </div>
                       <p className="text-muted-foreground">Practical exposure to industry workflows and systems.</p>
                       <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1 mt-2">
