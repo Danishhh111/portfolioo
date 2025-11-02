@@ -1,0 +1,23 @@
+[1mdiff --git a/package.json b/package.json[m
+[1mindex 7f34109..6b300a1 100644[m
+[1m--- a/package.json[m
+[1m+++ b/package.json[m
+[36m@@ -2,13 +2,6 @@[m
+   "name": "vite_react_shadcn_ts",[m
+   "private": true,[m
+   "version": "0.0.0",[m
+[31m-  "type": "module",[m
+[31m-  "scripts": {[m
+[31m-    "dev": "vite",[m
+[31m-    "build": "vite build",[m
+[31m-    "build:dev": "vite build --mode development",[m
+[31m-    "lint": "eslint .",[m
+[31m-    "preview": "vite preview"[m
+   {[m
+     "name": "vite_react_shadcn_ts",[m
+     "private": true,[m
+[36m@@ -91,3 +84,4 @@[m
+       "vite": "^5.4.19"[m
+     }[m
+   }[m
+[32m+[m[32m          "@radix-ui/react-radio-group": "^1.3.7",[m

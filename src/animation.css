@@ -1,0 +1,52 @@
+.background-animate {
+  background-size: 400%;
+  -webkit-animation: AnimateGradient 10s ease infinite;
+  animation: AnimateGradient 10s ease infinite;
+}
+
+@keyframes AnimateGradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.profile-hover {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.profile-border {
+  position: relative;
+}
+
+.profile-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, hsl(142 76% 56%), hsl(217 91% 60%), hsl(142 76% 56%));
+  border-radius: 9999px;
+  z-index: -1;
+  animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
