@@ -75,13 +75,16 @@ const Hero: React.FC = () => {
                 See My Projects
                 <ArrowDown size={20} />
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
                 className="gap-2 border-primary/20 hover:bg-primary/10"
               >
-                <Download size={20} />
-                Download CV
+                <a href="/Danish_Nawaz_CV.pdf" download aria-label="Download CV" className="flex items-center gap-2">
+                  <Download size={20} />
+                  Download CV
+                </a>
               </Button>
             </div>
 

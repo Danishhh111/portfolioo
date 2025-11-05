@@ -7,8 +7,8 @@ const projects = [
     title: "E-Commerce Platform",
     description: "A full-stack e-commerce website with cart, payments, and admin dashboard built with React and Node.js.",
     image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=600&h=400&fit=crop",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://ecommercebydanishh.netlify.app",
+    githubUrl: "https://github.com/Danishhh111/e-commerce-.git",
   },
   {
     title: "Task Management App",
@@ -58,16 +58,20 @@ const Projects = () => {
                   className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="p-6 flex gap-4">
-                    <Button size="sm" className="gap-2">
-                      <ExternalLink size={16} />
-                      View Live
-                    </Button>
-                    <Button size="sm" variant="outline" className="gap-2">
-                      <Github size={16} />
-                      Source Code
-                    </Button>
-                  </div>
+                    <div className="p-6 flex gap-4">
+                      <Button asChild size="sm" className="gap-2">
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                          <ExternalLink size={16} />
+                          View Live
+                        </a>
+                      </Button>
+                      <Button asChild size="sm" variant="outline" className="gap-2">
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                          <Github size={16} />
+                          Source Code
+                        </a>
+                      </Button>
+                    </div>
                 </div>
               </div>
               <div className="p-6">
