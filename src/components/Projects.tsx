@@ -1,6 +1,9 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import Magnetic from "@/components/Magnetic";
+import SectionTitle from "@/components/SectionTitle";
 
 const projects = [
   {
@@ -35,50 +38,72 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 px-4">
+    <section id="projects" className="relative py-24 px-4 sm:px-6">
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(14,116,144,0.28),transparent_65%)] blur-3xl" />
       <div className="container mx-auto">
-        <div className="text-center mb-12 slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">My Projects</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Here are some of my recent projects showcasing my skills in web development and problem-solving.
-          </p>
-        </div>
+        <SectionTitle title="My Projects" subtitle="Here are some of my recent projects showcasing my skills in web development and problem-solving." accent="violet" className="mb-14" />
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid gap-10 lg:grid-cols-2">
           {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden hover:shadow-[var(--card-shadow-hover)] transition-all duration-300 hover:-translate-y-2 fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 36 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.55, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="relative overflow-hidden group">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <div className="p-6 flex gap-4">
-                      <Button asChild size="sm" className="gap-2">
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                          <ExternalLink size={16} />
-                          View Live
-                        </a>
-                      </Button>
-                      <Button asChild size="sm" variant="outline" className="gap-2">
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                          <Github size={16} />
-                          Source Code
-                        </a>
-                      </Button>
-                    </div>
+              <Card className="group relative overflow-hidden rounded-3xl border border-white/5 bg-background/70 shadow-[0_40px_120px_rgba(15,23,42,0.35)] backdrop-blur-2xl transition-transform duration-300 hover:-translate-y-3 hover:shadow-[0_50px_140px_rgba(14,165,233,0.28)] will-change-transform">
+                <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-50">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-sky-500/20 to-emerald-400/20" />
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground">{project.description}</p>
-              </div>
-            </Card>
+                <div className="relative overflow-hidden">
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-64 w-full object-cover"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/0 to-transparent" />
+                  <motion.div
+                    className="absolute inset-x-0 bottom-0 translate-y-10 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100"
+                    layout
+                  >
+                    <div className="flex flex-wrap gap-3 p-6">
+                      <Magnetic>
+                        <Button asChild size="sm" className="gap-2 rounded-full bg-white/90 text-slate-900 hover:bg-white">
+                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                            <ExternalLink size={16} />
+                            View Live
+                          </a>
+                        </Button>
+                      </Magnetic>
+                      <Magnetic>
+                        <Button
+                          asChild
+                          size="sm"
+                          variant="outline"
+                          className="gap-2 rounded-full border-white/30 bg-white/10 text-white backdrop-blur hover:border-white/60"
+                        >
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                            <Github size={16} />
+                            Source Code
+                          </a>
+                        </Button>
+                      </Magnetic>
+                    </div>
+                  </motion.div>
+                </div>
+
+                <div className="space-y-3 p-8">
+                  <h3 className="text-2xl font-semibold text-slate-100">{project.title}</h3>
+                  <p className="text-sm leading-relaxed text-slate-400">{project.description}</p>
+                </div>
+                <div className="pointer-events-none absolute -inset-24 opacity-0 transition-opacity duration-200 group-hover:opacity-30">
+                  <div className="h-full w-full rotate-12 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.25),transparent_70%)]" />
+                </div>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
